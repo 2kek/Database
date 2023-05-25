@@ -1,0 +1,31 @@
+
+\COPY kids FROM 'C:\Users\2kek\Downloads\lab1.csv' DELIMITER ',' CSV HEADER;
+
+delete from kids where age < 16;
+delete from kids where age > 23;
+delete from kids where status = false;
+
+select distinct id,name,surname,status,age,dengi from kids;
+
+INSERT INTO "kids" (id,name,surname,status) values (15,'Babuk','Kabaduk',true);
+
+ALTER TABLE kids ADD COLUMN session boolean;
+
+UPDATE kids  SET session = true WHERE id = 15;
+UPDATE kids  SET session = true WHERE id = 3;
+UPDATE kids  SET session = true WHERE id = 5;
+UPDATE kids  SET session = true WHERE id = 1;
+UPDATE kids  SET session = true WHERE id = 8;
+UPDATE kids  SET session = false WHERE id = 2;
+
+Update kids set dengi = 0 where session = false;
+
+SELECT SUM(dengi) AS "totalDengi" FROM kids;
+либо 
+SELECT SUM(dengi) AS "totalDengi" FROM kids WHERE dengi > 0;
+МНЕ КАЖЕТСЯ ЭТОТ ВАРИАНТ ЛУЧШЕ ТАК КАК ДВА ВАРИАНТА СРАЗУ ОТМЕТАЮТСЯ И МОЖЕТ ПОТРЕБУЕТСЯ МЕНЬШЕ ВРЕМЕНИ НА ЗАВЕРШЕНИЕ.
+
+
+
+
+
